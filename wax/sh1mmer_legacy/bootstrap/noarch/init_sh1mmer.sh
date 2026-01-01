@@ -134,9 +134,9 @@ mount -o ro "$ROOTFS_DEV" "$ROOTFS_MNT" || fail "Failed to mount rootfs $ROOTFS_
 printf "\033[?25l\033[2J\033[H"
 
 printf "${COLOR_CYAN_B}"
-echo "ICBfX18gXyAgXyBfIF9fICBfXyBfXyAgX18gX19fIF9fXyAKIC8gX198IHx8IC8gfCAgXC8gIHwgIFwvICB8IF9ffCBfIFwKIFxfXyBcIF9fIHwgfCB8XC98IHwgfFwvfCB8IF98fCAgIC8KIHxfX18vX3x8X3xffF98ICB8X3xffCAgfF98X19ffF98X1wKCg==" | base64 -d
+echo "debugm3r"
 printf "${COLOR_RESET}"
-echo "Sh1mmer is loading..."
+echo "Debugm3r is loading..."
 echo "Bootloader date: ${SCRIPT_DATE}"
 echo "https://github.com/MercuryWorkshop/sh1mmer"
 echo ""
@@ -145,7 +145,7 @@ echo "Pro tip: you can hold:"
 echo "[x] at startup to enable xtrace"
 echo "[s] at startup to open an early shell"
 echo "[d] now to open a later shell"
-echo "[n] now to skip sh1mmer patch (boot \"raw\" shim)"
+echo "[n] now to skip debugm3r patch (boot \"raw\" shim)"
 echo ""
 
 echo "Copying rootfs..."
@@ -156,7 +156,7 @@ echo ""
 SKIP_SH1MMER_PATCH=0
 if [ "$(poll_key)" = "n" ]; then
 	SKIP_SH1MMER_PATCH=1
-	echo "SKIPPING SH1MMER PATCH"
+	echo "SKIPPING debugm3r PATCH"
 	echo ""
 fi
 
@@ -168,7 +168,7 @@ printf "${COLOR_RESET}"
 echo ""
 
 if [ "$SKIP_SH1MMER_PATCH" -eq 0 ]; then
-	echo "Copying Sh1mmer files..."
+	echo "Copying debugm3r files..."
 	pv_dircopy "$STATEFUL_MNT/root/noarch" "$NEWROOT_MNT" || :
 	pv_dircopy "$STATEFUL_MNT/root/$ARCHITECTURE" "$NEWROOT_MNT" || :
 	echo ""

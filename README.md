@@ -22,4 +22,3 @@ And if you just want an normal shim use
 BTW sh1mmer modern (sh1mmer with the gui) is unsupported
 #  Credits
 Mercury Workshop: Sh1mmer
-supported

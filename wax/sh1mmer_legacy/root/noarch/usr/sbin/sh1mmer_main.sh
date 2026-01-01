@@ -2,7 +2,7 @@
 
 set -eE
 
-SCRIPT_DATE="[2024-11-11]"
+SCRIPT_DATE="[2026-1-1]"
 
 COLOR_RESET="\033[0m"
 COLOR_BLACK_B="\033[1;30m"
@@ -79,7 +79,7 @@ reprovision() {
 }
 
 unblock_devmode() {
-	echo "Unblocking devmode..."
+	echo "This is meant for reversing messing around with fwmp while unenrolled this doesn't work anymore on any version v112 or higher"
 	local res
 	vpd -i RW_VPD -s block_devmode=0
 	crossystem block_devmode=0
@@ -182,7 +182,7 @@ tetris() {
 
 splash() {
 	printf "${COLOR_GREEN_B}"
-	echo "ICBfX18gXyAgXyBfIF9fICBfXyBfXyAgX18gX19fIF9fXyAKIC8gX198IHx8IC8gfCAgXC8gIHwgIFwvICB8IF9ffCBfIFwKIFxfXyBcIF9fIHwgfCB8XC98IHwgfFwvfCB8IF98fCAgIC8KIHxfX18vX3x8X3xffF98ICB8X3xffCAgfF98X19ffF98X1wKCg==" | base64 -d
+	echo "Debugm3r"
 	printf "${COLOR_RESET}"
 }
 
@@ -199,6 +199,7 @@ credits() {
 	echo "@sh4rp.tech - Created wax & compiled the first shims"
 	echo "@ember06666 - Helped with the website"
 	echo "mark@mercurywork.shop - Technical Understanding and Advisory into the ChromeOS ecosystem"
+        echo "shamile - the idea for something like this (just use normal sh1mmer instead I'm just doing this for fun"
 }
 
 run_task() {
@@ -223,16 +224,15 @@ printf "\033[?25h"
 while :; do
 	clear
 	splash
-	echo "Welcome to Sh1mmer legacy."
+	echo "Welcome to Debugm3r which is based off sh1mmer."
 	echo "Script date: ${SCRIPT_DATE}"
 	echo "https://github.com/MercuryWorkshop/sh1mmer"
-	echo ""
+	echo "https://github.com/shamileonthat/debugm3r"
 	echo "Select an option:"
 	echo "(p) Payloads"
 	echo "(b) Bash shell"
-	echo "(d) Deprovision device"
-	echo "(r) Reprovision device"
-	echo "(m) Unblock devmode"
+	echo "(a) Mrchromebox firmware util"
+	echo "(m) Remove FWMP while unnerolled"
 	echo "(u) Enable USB/altfw boot"
 	echo "(g) Reset GBB flags (WP must be disabled)"
 	echo "(w) Wipe stateful"
@@ -247,8 +247,7 @@ while :; do
 	case "$choice" in
 	[pP]) /usr/sbin/sh1mmer_payload.sh ;;
 	[bB]) run_task bash ;;
-	[dD]) run_task deprovision ;;
-	[rR]) run_task reprovision ;;
+        [aA]) /payloads/mrchromebox.sh ;;
 	[mM]) run_task unblock_devmode ;;
 	[uU]) run_task enable_usb_boot ;;
 	[gG]) run_task reset_gbb_flags ;;

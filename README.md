@@ -10,8 +10,7 @@ Yep... I'm an skid make fun of me I guess.
 # How to build
 This will detail instructions on how to build debugm3r as using the developer sh1mmer shim.
 First off get your shim for your board from cros.download and chromebrew-dev.tar.gz from https://dl.crosbreaker.dev/chromebrew
-Then clone this repo and cd into it, then run
-
+Then clone this repo and cd into the wax directory inside of the repo, then run
 `sudo bash wax.sh -i shim.bin --chromebrew chromebrew-dev.tar.gz -s 7G -p legacy`
 
 If you want an normal non dev shim with chromebrew do
